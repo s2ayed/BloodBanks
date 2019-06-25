@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <Button
+        android:id="@+id/sliderFragmentBtn"
+         android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="@dimen/txt_size_16"
+        android:text="@string/skip"
+        app:layout_constraintBottom_toBottomOf="@+id/fragmentSliderViewPager"
+        app:layout_constraintEnd_toEndOf="@+id/fragmentSliderViewPager"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toStartOf="@+id/fragmentSliderViewPager"
+        app:layout_constraintTop_toTopOf="@+id/fragmentSliderViewPager"
+        app:layout_constraintVertical_bias="0.982"
+        android:background="@color/white"
+       />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fragmentSliderViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</android.support.constraint.ConstraintLayout>

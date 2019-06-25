@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">BloodBank</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_of_rights">جميع الحقوق محفوظه لـ شركة ابداع تك للبرمجيات ©</string>
+    <string name="skip">Skip</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forget_password">Forgot your password?</string>
+    <string name="login">Login</string>
+    <string name="register">Create a new account</string>
+    <string name="phone">Mobile number</string>
+    <string name="password">password</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="name">The name</string>
+    <string name="email">E-mail</string>
+    <string name="date_of_bearth">Date of Birth</string>
+    <string name="faction">Blood Fraction</string>
+    <string name="last_donation">Other Date Donated</string>
+    <string name="add">Sign Up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="my_data">My Information</string>
+    <string name="setting_notify">Notification settings</string>
+    <string name="favorite">Favorite</string>
+    <string name="my_home">Main</string>
+    <string name="details">User instructions</string>
+    <string name="call_me">Connect with us</string>
+    <string name="exit">sign out</string>
+    <string name="shared_preferences_user">SaveDataUser</string>
+    <string name="send_Code">send</string>
+    <string name="forget_password_">Forgot your password</string>
+    <string name="pin_code">Pin Code</string>
+    <string name="change_password_code">Change password code</string>
+    <string name="confirmation_code_wrong">The confirmation code is wrong</string>
+    <string name="number_does_not_correspond">This number does not correspond</string>
+    <string name="It_should_be_the_largest6">It should be the largest 6</string>
+    <string name="confirmation_number_error">The confirmation number is an error</string>
+    <string name="governorates">المحافظه</string>
+    <string name="city">المدينه</string>
+</resources>
