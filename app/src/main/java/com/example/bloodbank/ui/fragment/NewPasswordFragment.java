@@ -31,6 +31,7 @@ import static com.example.bloodbank.data.local.SharedPreferncesManger.clean;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.setSharedPreferences;
 import static com.example.bloodbank.helper.HelperMathod.checkCorrespondPassword;
 import static com.example.bloodbank.helper.HelperMathod.checkLengthPassword;
+import static com.example.bloodbank.helper.HelperMathod.getStartFragments;
 
 
 public class NewPasswordFragment extends Fragment {
@@ -118,10 +119,9 @@ public class NewPasswordFragment extends Fragment {
 
                                     clean(getActivity());
 
-                                    Fragment fragment = new LoginFragment();
-                                    FragmentManager fragmentManager = getFragmentManager();
-                                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                    fragmentTransaction.replace(R.id.splashActivityReplaceFragment, fragment).commit();
+                                    if (getFragmentManager() != null) {
+                                        getStartFragments( getFragmentManager(),R.id.splashActivityReplaceFragment,new LoginFragment());
+                                    }
                                 }
                             }
 
@@ -139,7 +139,6 @@ public class NewPasswordFragment extends Fragment {
                             NewPasswordFragmentEditUserNewPassword.setError(getResources().getString(R.string.It_should_be_the_largest6));
 
                         }
-
                     }
 
                 } else {

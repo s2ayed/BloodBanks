@@ -41,6 +41,7 @@ import static com.example.bloodbank.data.local.SharedPreferncesManger.USER_ID;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.USER_NAME;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.USER_PHONE;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.setSharedPreferences;
+import static com.example.bloodbank.helper.HelperMathod.getStartFragments;
 
 
 public class LoginFragment extends Fragment {
@@ -88,9 +89,12 @@ public class LoginFragment extends Fragment {
         loginFragmentBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new RegisterFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.splashActivityReplaceFragment, fragment).commit();
+
+
+                if (getFragmentManager() != null) {
+                    getStartFragments( getFragmentManager(),R.id.splashActivityReplaceFragment,new RegisterFragment());
+                }
+
             }
         });
 
@@ -103,9 +107,10 @@ public class LoginFragment extends Fragment {
         loginFragmentTxtForgetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new ForgetPasswordFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.splashActivityReplaceFragment, fragment).commit();
+
+                if (getFragmentManager() != null) {
+                    getStartFragments( getFragmentManager(),R.id.splashActivityReplaceFragment,new ForgetPasswordFragment());
+                }
             }
         });
     }

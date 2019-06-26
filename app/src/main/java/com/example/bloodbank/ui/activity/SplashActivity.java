@@ -21,9 +21,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         // start Splash Fragment
-        Fragment fragment = new SplashFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.splashActivityReplaceFragment, fragment).commit();
+        getStartFragments( getSupportFragmentManager(),R.id.splashActivityReplaceFragment,new SplashFragment());
 
         try {
             // start Slider Fragment == 5000 mills
@@ -32,7 +30,9 @@ public class SplashActivity extends AppCompatActivity {
                 public void run() {
 
                     try {
-                        getStartFragments(getSupportFragmentManager(), R.id.splashActivityReplaceFragment, new SlideFragment());
+
+
+                        getStartFragments( getSupportFragmentManager(),R.id.splashActivityReplaceFragment,new SlideFragment());
                     } catch (Exception e) {
                         e.getMessage();
                     }

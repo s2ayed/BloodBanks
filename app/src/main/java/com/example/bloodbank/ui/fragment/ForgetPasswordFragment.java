@@ -34,6 +34,7 @@ import static com.example.bloodbank.data.local.SharedPreferncesManger.USER_ID;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.USER_NAME;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.USER_PHONE;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.setSharedPreferences;
+import static com.example.bloodbank.helper.HelperMathod.getStartFragments;
 
 
 public class ForgetPasswordFragment extends Fragment {
@@ -91,15 +92,13 @@ public class ForgetPasswordFragment extends Fragment {
 
                         if (response.body().getStatus() == 1) {
 
-
-
                             Bundle bundle=new Bundle();
                             bundle.putString("getPinCodeForTest",String.valueOf( response.body().getData().getPinCodeForTest()));
                             bundle.putString("UserPhone",ForgetPasswordFragmentEditUserPhone.getText().toString());
                             Fragment fragment = new NewPasswordFragment();
-                            FragmentManager fragmentManager = getFragmentManager();
-                            fragment.setArguments(bundle);
-                            fragmentManager.beginTransaction().replace(R.id.splashActivityReplaceFragment, fragment).commit();
+                            if (getFragmentManager() != null) {
+                                getStartFragments( getFragmentManager(),R.id.splashActivityReplaceFragment,fragment);
+                            }
 
                         }
                     }

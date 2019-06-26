@@ -28,6 +28,7 @@ import butterknife.Unbinder;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.KEY_IS_CHECK_BOX;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.LoadBoolean;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.setSharedPreferences;
+import static com.example.bloodbank.helper.HelperMathod.getStartFragments;
 
 public class SlideFragment extends Fragment {
     View view;
@@ -94,10 +95,11 @@ public class SlideFragment extends Fragment {
                     Intent intent = new Intent(getContext(), HomeActivity.class);
                     startActivity(intent);
                 } else {
-                    Fragment fragment= new LoginFragment();
-                    FragmentManager fragmentManager = getFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.splashActivityReplaceFragment,fragment).commit();
+
+                    if (getFragmentManager() != null) {
+                        getStartFragments( getFragmentManager(),R.id.splashActivityReplaceFragment,new LoginFragment());
+                    }
+
                 }
 
 
