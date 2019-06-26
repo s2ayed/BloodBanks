@@ -11,15 +11,15 @@ import com.example.bloodbank.ui.fragment.LoginFragment;
 public class HelperMathod {
 
 
-
+// check length password
  public static boolean checkLengthPassword(String newPassword){
-
    if ( newPassword.length() <= 6){
     return false;
    }
   return true;
  }
 
+// check Correspond password  == ConfirmPassword
 
  public static boolean checkCorrespondPassword(String newPassword,String ConfirmPassword){
   if (!newPassword.equals(ConfirmPassword)  ) {
@@ -29,4 +29,10 @@ public class HelperMathod {
    return true;
  }
 
+ // get start fragment
+ public static void getStartFragments(FragmentManager supportFragmentManager, int  ReplaceFragment, Fragment fragment) {
+  supportFragmentManager.beginTransaction().replace(ReplaceFragment, fragment).commit();
  }
+
+
+}

@@ -11,6 +11,8 @@ import com.example.bloodbank.helper.HelperMathod;
 import com.example.bloodbank.ui.fragment.SlideFragment;
 import com.example.bloodbank.ui.fragment.SplashFragment;
 
+import static com.example.bloodbank.helper.HelperMathod.getStartFragments;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -30,9 +32,7 @@ public class SplashActivity extends AppCompatActivity {
                 public void run() {
 
                     try {
-                        Fragment fragment = new SlideFragment();
-                        FragmentManager fragmentManager = getSupportFragmentManager();
-                        fragmentManager.beginTransaction().replace(R.id.splashActivityReplaceFragment, fragment).commit();
+                        getStartFragments(getSupportFragmentManager(), R.id.splashActivityReplaceFragment, new SlideFragment());
                     } catch (Exception e) {
                         e.getMessage();
                     }
@@ -45,5 +45,6 @@ public class SplashActivity extends AppCompatActivity {
 
 
     }
+
 
 }
