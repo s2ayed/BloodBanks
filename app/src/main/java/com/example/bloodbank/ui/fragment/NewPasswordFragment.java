@@ -3,8 +3,6 @@ package com.example.bloodbank.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,6 @@ import com.example.bloodbank.R;
 import com.example.bloodbank.data.api.ApiServer;
 import com.example.bloodbank.data.model.login.Login;
 import com.example.bloodbank.data.model.new_password.NewPassword;
-import com.example.bloodbank.ui.activity.HomeActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

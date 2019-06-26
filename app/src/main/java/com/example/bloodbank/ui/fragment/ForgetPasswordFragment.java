@@ -1,10 +1,8 @@
 package com.example.bloodbank.ui.fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,6 @@ import com.example.bloodbank.R;
 import com.example.bloodbank.data.api.ApiServer;
 import com.example.bloodbank.data.model.login.Login;
 import com.example.bloodbank.data.model.reset.Reset;
-import com.example.bloodbank.ui.activity.HomeActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,13 +23,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.example.bloodbank.data.api.RetrofitClient.getClient;
-import static com.example.bloodbank.data.local.SharedPreferncesManger.Key_password;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.SaveData;
-import static com.example.bloodbank.data.local.SharedPreferncesManger.USER_API_TOKEN;
-import static com.example.bloodbank.data.local.SharedPreferncesManger.USER_EMAIL;
-import static com.example.bloodbank.data.local.SharedPreferncesManger.USER_ID;
-import static com.example.bloodbank.data.local.SharedPreferncesManger.USER_NAME;
-import static com.example.bloodbank.data.local.SharedPreferncesManger.USER_PHONE;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.setSharedPreferences;
 import static com.example.bloodbank.helper.HelperMathod.getStartFragments;
 

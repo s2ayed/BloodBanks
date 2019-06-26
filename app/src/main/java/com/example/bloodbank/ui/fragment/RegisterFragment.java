@@ -30,7 +30,7 @@ import com.example.bloodbank.data.model.CityGovernorateSpinnnerModel;
 import com.example.bloodbank.data.model.blood_types.BloodTypes;
  import com.example.bloodbank.data.model.governorates.Governorates;
 import com.example.bloodbank.data.model.register.Register;
-import com.example.bloodbank.ui.activity.HomeActivity;
+import com.example.bloodbank.ui.activity.HomeVavgation;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -318,7 +318,7 @@ public class RegisterFragment extends Fragment {
                     Toast.makeText(getContext(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
                     if (response.body().getStatus() == 1) {
 
-                        Intent intent = new Intent(getContext(), HomeActivity.class);
+                        Intent intent = new Intent(getContext(), HomeVavgation.class);
                         startActivity(intent);
                     }
                 }

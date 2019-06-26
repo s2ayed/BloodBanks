@@ -14,9 +14,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".ui.activity.HomeActivity"
+            android:name=".ui.activity.HomeVavgation"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+        android:name=".ui.activity.ReplaceActivity"
+        android:label="@string/title_activity_home"
+        android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity android:name=".ui.activity.SplashActivity">
             <intent-filter>

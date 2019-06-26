@@ -2,10 +2,8 @@ package com.example.bloodbank.ui.fragment;
 
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +18,7 @@ import android.widget.Toast;
 import com.example.bloodbank.R;
 import com.example.bloodbank.data.api.ApiServer;
 import com.example.bloodbank.data.model.login.Login;
-import com.example.bloodbank.ui.activity.HomeActivity;
+import com.example.bloodbank.ui.activity.HomeVavgation;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -170,7 +168,7 @@ public class LoginFragment extends Fragment {
                             }
 
 
-                            Intent intent = new Intent(getContext(), HomeActivity.class);
+                            Intent intent = new Intent(getContext(), HomeVavgation.class);
                             startActivity(intent);
                         }
                     }

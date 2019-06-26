@@ -7,10 +7,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +16,9 @@ import android.widget.Button;
 import com.example.bloodbank.R;
 import com.example.bloodbank.adapter.SliderAdapter;
 import com.example.bloodbank.data.model.SliderModel;
-import com.example.bloodbank.ui.activity.HomeActivity;
+import com.example.bloodbank.ui.activity.HomeVavgation;
 
 import java.util.ArrayList;
-
-import butterknife.Unbinder;
 
 import static com.example.bloodbank.data.local.SharedPreferncesManger.KEY_IS_CHECK_BOX;
 import static com.example.bloodbank.data.local.SharedPreferncesManger.LoadBoolean;
@@ -92,7 +87,7 @@ public class SlideFragment extends Fragment {
             public void onClick(View v) {
                 // check is checkBox is Checked
                 if (LoadBoolean(getActivity(), KEY_IS_CHECK_BOX,false)) {
-                    Intent intent = new Intent(getContext(), HomeActivity.class);
+                    Intent intent = new Intent(getContext(), HomeVavgation.class);
                     startActivity(intent);
                 } else {
 
