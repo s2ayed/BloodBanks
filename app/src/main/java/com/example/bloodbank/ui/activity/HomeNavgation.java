@@ -1,34 +1,47 @@
 package com.example.bloodbank.ui.activity;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.View;
-import android.support.v4.view.GravityCompat;
-import android.view.MenuItem;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.example.bloodbank.R;
+import com.example.bloodbank.adapter.PageHomeNavagationAdapter;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import static com.example.bloodbank.data.local.SharedPreferncesManger.clean;
 
 
-public class HomeVavgation extends AppCompatActivity
+public class HomeNavgation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    @BindView(R.id.homeNavgationTabBar)
+    TabLayout homeNavgationTabBar;
+    @BindView(R.id.homeNavgationViewPager)
+    ViewPager homeNavgationViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        ButterKnife.bind(this);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -43,6 +56,44 @@ public class HomeVavgation extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         View headerView = navigationView.getHeaderView(0);
+
+
+        initTabBar();
+
+    }
+
+    private void initTabBar() {
+
+        homeNavgationTabBar.addTab(homeNavgationTabBar.newTab().setText(getResources().getString(R.string.articles)));
+        homeNavgationTabBar.addTab(homeNavgationTabBar.newTab().setText(getResources().getString(R.string.requst_donation)));
+        homeNavgationTabBar.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        PageHomeNavagationAdapter pageHomeNavagationAdapter = new PageHomeNavagationAdapter(getSupportFragmentManager()
+                ,homeNavgationTabBar.getTabCount());
+        homeNavgationViewPager.setAdapter(pageHomeNavagationAdapter);
+
+         homeNavgationTabBar.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                homeNavgationViewPager.setCurrentItem(tab.getPosition());
+
+                int tabIconColor = ContextCompat.getColor(getApplicationContext(), R.color.color_tab_bar_line_select);
+                homeNavgationTabBar.setSelectedTabIndicatorColor(tabIconColor);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                int tabIconColor = ContextCompat.getColor(getApplicationContext(), R.color.white);
+                homeNavgationTabBar.setSelectedTabIndicatorColor(tabIconColor);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+        homeNavgationViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(homeNavgationTabBar));
+
 
     }
 
@@ -102,9 +153,9 @@ public class HomeVavgation extends AppCompatActivity
 
         } else if (id == R.id.nav_exit) {
 
-            clean(HomeVavgation.this);
+            clean(HomeNavgation.this);
 
-            startActivity(new Intent(HomeVavgation.this,SplashActivity.class));
+            startActivity(new Intent(HomeNavgation.this, SplashActivity.class));
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

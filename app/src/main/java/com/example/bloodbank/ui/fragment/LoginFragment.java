@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.example.bloodbank.R;
 import com.example.bloodbank.data.api.ApiServer;
 import com.example.bloodbank.data.model.login.Login;
-import com.example.bloodbank.ui.activity.HomeVavgation;
+import com.example.bloodbank.ui.activity.HomeNavgation;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -168,7 +168,7 @@ public class LoginFragment extends Fragment {
                             }
 
 
-                            Intent intent = new Intent(getContext(), HomeVavgation.class);
+                            Intent intent = new Intent(getContext(), HomeNavgation.class);
                             startActivity(intent);
                         }
                     }

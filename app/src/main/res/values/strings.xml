@@ -51,4 +51,6 @@
     <string name="confirmation_number_error">The confirmation number is an error</string>
     <string name="governorates">المحافظه</string>
     <string name="city">المدينه</string>
+    <string name="requst_donation">طلبات التبرع</string>
+    <string name="articles">المقالات</string>
 </resources>

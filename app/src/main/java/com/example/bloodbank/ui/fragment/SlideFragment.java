@@ -16,7 +16,7 @@ import android.widget.Button;
 import com.example.bloodbank.R;
 import com.example.bloodbank.adapter.SliderAdapter;
 import com.example.bloodbank.data.model.SliderModel;
-import com.example.bloodbank.ui.activity.HomeVavgation;
+import com.example.bloodbank.ui.activity.HomeNavgation;
 
 import java.util.ArrayList;
 
@@ -87,7 +87,7 @@ public class SlideFragment extends Fragment {
             public void onClick(View v) {
                 // check is checkBox is Checked
                 if (LoadBoolean(getActivity(), KEY_IS_CHECK_BOX,false)) {
-                    Intent intent = new Intent(getContext(), HomeVavgation.class);
+                    Intent intent = new Intent(getContext(), HomeNavgation.class);
                     startActivity(intent);
                 } else {
 

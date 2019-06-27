@@ -15,12 +15,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        try {
-
-             getShowSlider();
-        } catch (Exception e) {
-            e.getMessage();
-        }
 
 
     }
@@ -48,7 +42,13 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        getShowSlider();
+        try {
+
+            getShowSlider();
+
+        } catch (Exception e) {
+            e.getMessage();
+        }
 
     }
 }
