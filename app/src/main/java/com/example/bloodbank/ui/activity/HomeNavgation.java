@@ -66,15 +66,19 @@ public class HomeNavgation extends AppCompatActivity
 
         homeNavgationTabBar.addTab(homeNavgationTabBar.newTab().setText(getResources().getString(R.string.articles)));
         homeNavgationTabBar.addTab(homeNavgationTabBar.newTab().setText(getResources().getString(R.string.requst_donation)));
+
         homeNavgationTabBar.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        PageHomeNavagationAdapter pageHomeNavagationAdapter = new PageHomeNavagationAdapter(getSupportFragmentManager()
-                ,homeNavgationTabBar.getTabCount());
+        PageHomeNavagationAdapter pageHomeNavagationAdapter = new PageHomeNavagationAdapter(getSupportFragmentManager(),homeNavgationTabBar.getTabCount());
         homeNavgationViewPager.setAdapter(pageHomeNavagationAdapter);
+
+        int tabIconColor = ContextCompat.getColor(getApplicationContext(), R.color.color_tab_bar_line_select);
+        homeNavgationTabBar.setSelectedTabIndicatorColor(tabIconColor);
 
          homeNavgationTabBar.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+
                 homeNavgationViewPager.setCurrentItem(tab.getPosition());
 
                 int tabIconColor = ContextCompat.getColor(getApplicationContext(), R.color.color_tab_bar_line_select);

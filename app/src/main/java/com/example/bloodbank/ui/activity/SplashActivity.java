@@ -15,8 +15,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-
-
     }
 
     private void getShowSlider() {
@@ -26,7 +24,6 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
 
                 try {
-
                     // start Splash Fragment
                     startActivity(new Intent(SplashActivity.this, ReplaceActivity.class));
 
