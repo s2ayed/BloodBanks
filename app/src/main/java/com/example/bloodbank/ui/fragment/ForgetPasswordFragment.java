@@ -87,6 +87,7 @@ public class ForgetPasswordFragment extends Fragment {
                             bundle.putString("getPinCodeForTest",String.valueOf( response.body().getData().getPinCodeForTest()));
                             bundle.putString("UserPhone",ForgetPasswordFragmentEditUserPhone.getText().toString());
                             Fragment fragment = new NewPasswordFragment();
+                            fragment.setArguments(bundle);
                             if (getFragmentManager() != null) {
                                 getStartFragments( getFragmentManager(),R.id.splashActivityReplaceFragment,fragment);
                             }

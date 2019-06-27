@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void getShowSlider() {
-        // start Slider Fragment == 5000 mills
+        // start Slider Fragment == 2000 mills
         new android.os.Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -34,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
                 try {
 
                     // start Splash Fragment
-                    startActivity(new Intent(SplashActivity.this,   ReplaceActivity.class));
+                    startActivity(new Intent(SplashActivity.this, ReplaceActivity.class));
 
                     //getStartFragments( getSupportFragmentManager(),R.id.splashActivityReplaceFragment,new SlideFragment());
                 } catch (Exception e) {
