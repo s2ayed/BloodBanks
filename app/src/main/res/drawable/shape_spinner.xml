@@ -4,6 +4,7 @@
         <layer-list>
             <item>
                 <shape  >
+                    <corners android:radius="@dimen/dim_4"/>
 
                     <padding
                         android:left="4dp"

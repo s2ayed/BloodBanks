@@ -5,6 +5,7 @@
     <dimen name="dim_2">2dp</dimen>
     <dimen name="dim_4">4dp</dimen>
     <dimen name="dim_8">8dp</dimen>
+    <dimen name="dim_l2">12dp</dimen>
     <dimen name="dim_l6">16dp</dimen>
     <dimen name="dim_24">24dp</dimen>
     <dimen name="dim_28">28sp</dimen>
@@ -16,7 +17,7 @@
     <dimen name="dim_64">64dp</dimen>
     <dimen name="dim_72">72dp</dimen>
     <dimen name="dim_80">80dp</dimen>
-    <dimen name="dim_88">88dp</dimen>
+        <dimen name="dim_88">88dp</dimen>
     <dimen name="dim_96">96dp</dimen>
     <dimen name="dim_104">104dp</dimen>
     <dimen name="dim_112">112dp</dimen>

@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.bloodbank.ui.fragment.ArticlesFragment;
-import com.example.bloodbank.ui.fragment.DonationRequests;
+import com.example.bloodbank.ui.fragment.DonationRequestsHomeFragment;
 
 public class PageHomeNavagationAdapter extends FragmentStatePagerAdapter {
 
@@ -22,7 +22,7 @@ public class PageHomeNavagationAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return new ArticlesFragment();
             case 1:
-                return new DonationRequests();
+                return new DonationRequestsHomeFragment();
             default:
                 return null;
         }

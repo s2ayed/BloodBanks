@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.bloodbank.R;
 import com.example.bloodbank.data.api.ApiServer;
 import com.example.bloodbank.data.model.login.Login;
-import com.example.bloodbank.data.model.reset.Reset;
+import com.example.bloodbank.data.model.reset.ResetModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -75,10 +75,10 @@ public class ForgetPasswordFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 apiServer = getClient().create(ApiServer.class);
-                Call<Reset> call = apiServer.resetPassword(ForgetPasswordFragmentEditUserPhone.getText().toString());
-                call.enqueue(new Callback<Reset>() {
+                Call<ResetModel> call = apiServer.resetPassword(ForgetPasswordFragmentEditUserPhone.getText().toString());
+                call.enqueue(new Callback<ResetModel>() {
                     @Override
-                    public void onResponse(Call<Reset> call, Response<Reset> response) {
+                    public void onResponse(Call<ResetModel> call, Response<ResetModel> response) {
                         Toast.makeText(getContext(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
 
                         if (response.body().getStatus() == 1) {
@@ -96,7 +96,7 @@ public class ForgetPasswordFragment extends Fragment {
                     }
 
                     @Override
-                    public void onFailure(Call<Reset> call, Throwable t) {
+                    public void onFailure(Call<ResetModel> call, Throwable t) {
 
                     }
                 });

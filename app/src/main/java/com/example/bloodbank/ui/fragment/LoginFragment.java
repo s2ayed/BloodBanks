@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,6 +61,8 @@ public class LoginFragment extends Fragment {
 
     ApiServer apiServer;
     public static Login login;
+     ProgressBar loginFragmentProgressBar;
+    private boolean Checked;
 
 
     @Override
@@ -67,7 +70,11 @@ public class LoginFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_login, container, false);
 
+
         unbinder = ButterKnife.bind(this, view);
+
+        //initializer
+        inti();
         // initialize ShardPreferences
         setSharedPreferences(getActivity());
 
@@ -77,7 +84,12 @@ public class LoginFragment extends Fragment {
         ClassAllOnClick();
         // get data all User
         getDataUserShrPreferences();
+
         return view;
+    }
+
+    private void inti() {
+        loginFragmentProgressBar = view.findViewById(R.id.loginFragmentProgressBar);
     }
 
     private void ClassAllOnClick() {
@@ -90,7 +102,7 @@ public class LoginFragment extends Fragment {
 
 
                 if (getFragmentManager() != null) {
-                    getStartFragments( getFragmentManager(),R.id.splashActivityReplaceFragment,new RegisterFragment());
+                    getStartFragments(getFragmentManager(), R.id.splashActivityReplaceFragment, new RegisterFragment());
                 }
 
             }
@@ -99,7 +111,7 @@ public class LoginFragment extends Fragment {
         loginFragmentChkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                SaveData(getActivity(), KEY_IS_CHECK_BOX,isChecked);
+                Checked = isChecked;
             }
         });
         loginFragmentTxtForgetPassword.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +119,7 @@ public class LoginFragment extends Fragment {
             public void onClick(View v) {
 
                 if (getFragmentManager() != null) {
-                    getStartFragments( getFragmentManager(),R.id.splashActivityReplaceFragment,new ForgetPasswordFragment());
+                    getStartFragments(getFragmentManager(), R.id.splashActivityReplaceFragment, new ForgetPasswordFragment());
                 }
             }
         });
@@ -115,11 +127,11 @@ public class LoginFragment extends Fragment {
 
     private void getDataUserShrPreferences() {
 
-        loginFragmentEditUserPhone.setText(LoadData(getActivity(),USER_PHONE));
-        loginFragmentEditUserPassword.setText(LoadData(getActivity(),Key_password));
+        loginFragmentEditUserPhone.setText(LoadData(getActivity(), USER_PHONE));
+        loginFragmentEditUserPassword.setText(LoadData(getActivity(), Key_password));
 
         // check is checkBox is Checked
-        if (LoadBoolean(getActivity(), KEY_IS_CHECK_BOX,false)) {
+        if (LoadBoolean(getActivity(), KEY_IS_CHECK_BOX, false)) {
             Log.d("response", "true");
             loginFragmentChkBox.setChecked(true);
         } else {
@@ -129,7 +141,7 @@ public class LoginFragment extends Fragment {
         }
     }
 
-    private void ClassSharedPreferences(int id, String ApiToken, String name, String email, String phone,String  password) {
+    private void ClassSharedPreferences(int id, String ApiToken, String name, String email, String phone, String password) {
 
         SaveData(getActivity(), USER_API_TOKEN, String.valueOf(ApiToken));
         SaveData(getActivity(), USER_ID, String.valueOf(id));
@@ -137,6 +149,7 @@ public class LoginFragment extends Fragment {
         SaveData(getActivity(), USER_EMAIL, String.valueOf(email));
         SaveData(getActivity(), USER_PHONE, String.valueOf(phone));
         SaveData(getActivity(), Key_password, String.valueOf(password));
+        SaveData(getActivity(), KEY_IS_CHECK_BOX, Checked);
     }
 
     // class login retrofit
@@ -144,33 +157,48 @@ public class LoginFragment extends Fragment {
         loginFragmentBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                loginFragmentProgressBar.setVisibility(View.INVISIBLE);
+
                 apiServer = getClient().create(ApiServer.class);
                 Call<Login> call = apiServer.onLogin(loginFragmentEditUserPhone.getText().toString()
                         , loginFragmentEditUserPassword.getText().toString());
                 call.enqueue(new Callback<Login>() {
                     @Override
                     public void onResponse(Call<Login> call, Response<Login> response) {
-                        Toast.makeText(getContext(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                        try {
+                            loginFragmentProgressBar.setVisibility(View.VISIBLE);
 
-                        if (response.body().getStatus() == 1) {
-                            Log.d("response", response.body().getData().getClient().getEmail());
-                            login = response.body();
+                            Toast.makeText(getContext(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
 
-                            // check is checkBox is Checked
-                            if (loginFragmentChkBox.isChecked() ) {
-                                // save data login user
-                                ClassSharedPreferences(response.body().getData().getClient().getId()
-                                        , response.body().getData().getApiToken()
-                                        , response.body().getData().getClient().getName(),
-                                        response.body().getData().getClient().getEmail(),
-                                        response.body().getData().getClient().getPhone()
-                                        ,loginFragmentEditUserPassword.getText().toString());
+                            if (response.body().getStatus() == 1) {
+                                Log.d("response", response.body().getData().getClient().getEmail());
+                                login = response.body();
+
+                                // check is checkBox is Checked
+                                if (loginFragmentChkBox.isChecked()) {
+                                    // save data login user
+                                    ClassSharedPreferences(response.body().getData().getClient().getId()
+                                            , response.body().getData().getApiToken()
+                                            , response.body().getData().getClient().getName(),
+                                            response.body().getData().getClient().getEmail(),
+                                            response.body().getData().getClient().getPhone()
+                                            , loginFragmentEditUserPassword.getText().toString());
+
+                                    loginFragmentProgressBar.setVisibility(View.VISIBLE);
+
+                                }else {
+                                    loginFragmentProgressBar.setVisibility(View.VISIBLE);
+                                }
+
+
+                                Intent intent = new Intent(getContext(), HomeNavgation.class);
+                                startActivity(intent);
                             }
-
-
-                            Intent intent = new Intent(getContext(), HomeNavgation.class);
-                            startActivity(intent);
+                        }catch (Exception e){
+                            e.getMessage();
                         }
+
                     }
 
                     @Override

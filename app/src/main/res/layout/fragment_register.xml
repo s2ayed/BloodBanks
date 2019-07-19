@@ -251,7 +251,8 @@ android:background="@drawable/splash"
                     app:layout_constraintBottom_toBottomOf="@+id/registerFragmentRegisterBtn"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/registerFragmentEditUserName" />
+                    app:layout_constraintTop_toTopOf="@+id/registerFragmentEditUserName"
+                    tools:visibility="gone" />
 
 
             </android.support.constraint.ConstraintLayout>

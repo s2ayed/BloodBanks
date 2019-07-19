@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.bloodbank.R;
 import com.example.bloodbank.data.api.ApiServer;
 import com.example.bloodbank.data.model.login.Login;
-import com.example.bloodbank.data.model.new_password.NewPassword;
+import com.example.bloodbank.data.model.new_password.NewPasswordModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -106,10 +106,10 @@ public class NewPasswordFragment extends Fragment {
                     if (checkCorrespondPassword(newPassword,ConfirmPassword)&& checkLengthPassword(newPassword)) {
 
                         apiServer = getClient().create(ApiServer.class);
-                        Call<NewPassword> call = apiServer.newPassword(newPassword, ConfirmPassword, CodePin, UserPhone);
-                        call.enqueue(new Callback<NewPassword>() {
+                        Call<NewPasswordModel> call = apiServer.newPassword(newPassword, ConfirmPassword, CodePin, UserPhone);
+                        call.enqueue(new Callback<NewPasswordModel>() {
                             @Override
-                            public void onResponse(Call<NewPassword> call, Response<NewPassword> response) {
+                            public void onResponse(Call<NewPasswordModel> call, Response<NewPasswordModel> response) {
                                 Toast.makeText(getContext(), response.body().getMsg()   , Toast.LENGTH_SHORT).show();
 
                                 if (response.body().getStatus() == 1) {
@@ -123,7 +123,7 @@ public class NewPasswordFragment extends Fragment {
                             }
 
                             @Override
-                            public void onFailure(Call<NewPassword> call, Throwable t) {
+                            public void onFailure(Call<NewPasswordModel> call, Throwable t) {
                                 newPasswordFragmentEditUserCodePin.setError(getResources().getString(R.string.confirmation_code_wrong));
                             }
                         });
