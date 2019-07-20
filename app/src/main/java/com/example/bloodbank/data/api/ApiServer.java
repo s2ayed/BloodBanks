@@ -134,11 +134,12 @@ public interface ApiServer {
 
 
 
-    @POST("remove-token")
+    @POST("register-token")
     @FormUrlEncoded
     Call<RegisterToken>RegisterToken(@Field("token") String token
             , @Field("api_token") String api_token, @Field("type") String type);
-    @POST("register-token")
+
+    @POST("remove-token")
     @FormUrlEncoded
     Call<RegisterToken>RemoveToken(@Field("token") String token
             , @Field("api_token") String api_token);

@@ -158,7 +158,7 @@ public class ArticlesFragment extends Fragment {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                             idCategory = categoriesArrayList.get(position).getId();
-                            Toast.makeText(getContext(), "" + idCategory + "", Toast.LENGTH_SHORT).show();
+                       //     Toast.makeText(getContext(), "" + idCategory + "", Toast.LENGTH_SHORT).show();
                         }
 
                         @Override

@@ -232,14 +232,14 @@ public class HomeNavgation extends AppCompatActivity
 
                 try {
                     if (response.body().getStatus() == 1) {
-                        //  Toast.makeText(getApplication(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
+
+                //    Toast.makeText(getApplication(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
                     } else {
-                        //Toast.makeText(getApplication(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
+           //   Toast.makeText(getApplication(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.getMessage();
                 }
-
             }
 
             @Override

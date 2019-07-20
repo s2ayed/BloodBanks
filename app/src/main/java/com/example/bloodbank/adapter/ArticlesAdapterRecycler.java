@@ -126,8 +126,6 @@ public class ArticlesAdapterRecycler extends RecyclerView.Adapter<ArticlesAdapte
 
                 Log.d("getFavoriteApi", response.message());
                 if (response.body().getStatus() == 1) {
-
-
                 }
             }
 
@@ -138,38 +136,7 @@ public class ArticlesAdapterRecycler extends RecyclerView.Adapter<ArticlesAdapte
         });
     }
 
-    // get   Post and Filter = idCategory or KeyWord
-    public boolean getAllPostFilter(final int postion, String keyword, int idCategory) {
-
-        try {
-
-            // get  PaginationData post Filter
-            apiServer.getPostsFilter(LoadData(context, USER_API_TOKEN), 1
-                    , keyword, idCategory).enqueue(new Callback<PostsModel>() {
-                @Override
-                public void onResponse(Call<PostsModel> call, Response<PostsModel> response) {
-                    Log.d("response BloodTypes ", response.body().getMsg());
-
-                    if (response.body().getStatus() == 1) {
-                        numFavorite = response.body().getData().getData().get(0).getIsFavourite();
-
-                    } else {
-                        Toast.makeText(context, "Not PaginationData", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<PostsModel> call, Throwable t) {
-                }
-            });
-
-
-        } catch (Exception e) {
-            e.getMessage();
-        }
-        return numFavorite;
-    }
-
+    
 
     @Override
     public int getItemCount() {
